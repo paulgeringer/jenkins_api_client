@@ -268,6 +268,8 @@ module JenkinsApi
       uri = URI.parse(@artifact)
       http = Net::HTTP.new(uri.host, uri.port)
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      puts "uri"
+      puts uri
       http.use_ssl = @ssl
       request = Net::HTTP::Get.new(uri.request_uri)
       request.basic_auth(@username, @password)
